@@ -1,0 +1,54 @@
+<!--
+<ion-view view-title="Produits">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="produit in produitsParCat" href="#/app/playlists/{{playlist.id}}">
+        <b>{{produit.stock}}</b> de pieces <b>{{produit.libelle}}</b> sera vendu à seulement <b>{{produit.prix}}</b> dt de
+        <b>{{produit.begin}}</b> jusqu'à  <b>{{produit.end}}</b>
+      </ion-item>
+<ion-item ng-if="produitsParCat.length<1">
+  Pas de Produit dans cette catégorie
+
+</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
+-->
+<ion-view view-title="Produits">
+  <br><br>
+
+  <ion-content>
+    <ion-list>
+
+      <ion-item ng-if="produitsParCat.length==1">{{produitsParCat.length}} produit</ion-item>
+      <ion-item ng-if="produitsParCat.length>1">{{produitsParCat.length}} produits</ion-item>
+
+
+      <ion-item ng-repeat="produit in produitsParCat">
+
+        <ion-item style="width: 120px;color: transparent">
+          <ion-avatar item-left >
+            <img src="../img/avatar.jpg" style="width: 50px">
+          </ion-avatar>
+          <h2>{{getNomVendeur(produit.vendeur_id)}}</h2>
+          <p>{{produit.begin}}</p>
+        </ion-item>
+
+        <img src="../img/produit.jpg" style="width: 200px">
+
+        <ion-card-content>
+          <p>   <b>{{produit.stock}}</b> de pieces <b>{{produit.libelle}}</b> sera vendu à seulement <b>{{produit.prix}}</b> dt de
+            <b>{{produit.begin}}</b> jusqu'à  <b>{{produit.end}}</b></p>
+        </ion-card-content>
+
+
+
+      </ion-item>
+      <ion-item ng-if="produitsParCat.length<1">
+        Pas de Produit dans cette catégorie
+
+      </ion-item>
+
+    </ion-list>
+  </ion-content>
+</ion-view>

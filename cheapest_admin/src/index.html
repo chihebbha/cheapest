@@ -22,7 +22,7 @@
   <script type="text/javascript" src="js/dashboard.min.js"></script>
 </head>
 <body ng-controller="MasterCtrl">
-  <div id="page-wrapper" ng-class="{'open': toggle}" ng-cloak>
+  <div ng-controller="LoginCtrl" id="page-wrapper" ng-class="{'open': toggle}" ng-cloak>
 
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
@@ -40,8 +40,12 @@
         <li class="sidebar-list">
           <a href="#/tables">Tables <span class="menu-icon fa fa-table"></span></a>
         </li>
-          <li class="sidebar-list">
+          <li class="sidebar-list" ng-if=" log">
           <a href="#/produits">Produits <span class="menu-icon fa fa-table"></span></a>
+        </li>
+          
+          <li class="sidebar-list" ng-if="user.type=='Admin'">
+          <a href="#/Demandeproduits">Demande d'ajout<span class="menu-icon fa fa-table"></span></a>
         </li>
       </ul>
       <div class="sidebar-footer">
@@ -70,7 +74,7 @@
         <!-- Header Bar -->
         <div class="row header">
           <div class="col-xs-12">
-            <div class="user pull-right" ng-controller="LoginCtrl">
+            <div class="user pull-right" >
                 
                 
                 
@@ -131,7 +135,7 @@
         <!-- End Header Bar -->
 
         <!-- Main Content -->
-        <div ui-view></div>
+        <div ui-view ></div>
 
       </div><!-- End Page Content -->
     </div><!-- End Content Wrapper -->

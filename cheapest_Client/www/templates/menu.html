@@ -1,0 +1,69 @@
+<ion-side-menus enable-menu-with-back-views="false" ng-controller="AppCtrl">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <ion-header-bar class="bar-stable">
+      <h1 class="title"><font color="#8b0000"><b>Cheap</b></font><font color="#00008b"><i>est</i></font> </h1>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list>
+
+        <ion-item menu-close ng-if="logg">
+    <img src="../img/avatar.jpg" style="width: 40px;margin-right: 20px;" />   <b>   {{user.prenom}}  {{user.nom}}    </b>
+
+        </ion-item>
+        <ion-item menu-close ng-if="logg" ng-click="logout()" >
+
+          Logout
+        </ion-item>
+        <ion-item menu-close ng-click="login()" ng-if="!logg">
+          Login
+        </ion-item>
+
+        <ion-item menu-close href="#/app/search">
+
+          Search
+        </ion-item>
+        <ion-item menu-close href="#/app/browse">
+          Browse
+        </ion-item>
+        <ion-item menu-close href="#/app/produits" ng-if="logg">
+          Produits
+        </ion-item>
+
+
+
+        <ion-item ng-if="logg" class="item-stable"
+                  ng-click="toggleGroup(group)"
+                  ng-class="{active: isGroupShown(group)}">
+          <i class="icon" ng-class="isGroupShown(group) ? 'ion-minus' : 'ion-plus'"></i>
+          &nbsp;
+          produit par categorie
+        </ion-item>
+        <ion-item ng-if="logg" class="item-accordion"
+
+                  ng-show="isGroupShown(group)" ng-repeat="cat in categories" ng-click="getParCat(cat.id)" href="#/app/produitsParCat">
+          {{cat.libelle}}
+        </ion-item>
+
+
+
+      </ion-list>
+    </ion-content>
+
+
+
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

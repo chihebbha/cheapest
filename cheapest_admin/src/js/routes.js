@@ -39,6 +39,10 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
                 url: '/register',
                 templateUrl: 'templates/register.html'
             })
+        .state('Demandeproduits', {
+                url: '/Demandeproduits',
+                templateUrl: 'templates/Demandeproduits.html'
+            })
         ;
     }
 ]);

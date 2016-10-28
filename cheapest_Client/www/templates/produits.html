@@ -1,0 +1,11 @@
+<ion-view view-title="Produits">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="produit in produits" href="#/app/playlists/{{playlist.id}}">
+        <b>{{produit.stock}}</b> de pieces <b>{{produit.libelle}}</b> sera vendu à seulement <b>{{produit.prix}}</b> dt de
+   <b>{{produit.begin}}</b> jusqu'à  <b>{{produit.end}}</b>
+      </ion-item>
+
+    </ion-list>
+  </ion-content>
+</ion-view>
